@@ -2,11 +2,12 @@ const titleIn = document.querySelector('#title')
 const nameIn = document.querySelector('#name')
 const ISBNIn = document.querySelector('#ISBN')
 const form = document.querySelector('form')
+const data = document.querySelector('#bookData')
 
+data.addEventListener('click', deleteBook)
 form.addEventListener('submit', addBook)
 
 function addBook(e) {
-    const data = document.querySelector('#bookData')
     const row = data.insertRow(1);
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
@@ -20,9 +21,16 @@ function addBook(e) {
     cell2.innerHTML = nameIn.value;
     cell3.innerHTML = ISBNIn.value;
     cell4.appendChild(cross) ;
-    console.log("ok")
     e.preventDefault()
     titleIn.value = ""
     nameIn.value = ""
     ISBNIn.value = ""
+}
+function deleteBook(e){
+    if(e.target.textContent === "X"){
+        if(confirm( "are you sure you want to remove this book?")){
+            curBook = e.target.parentElement.parentElement.rowIndex
+            data.deleteRow(curBook)
+        }
+    }
 }
