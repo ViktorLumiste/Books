@@ -26,8 +26,3 @@ function addBook(e) {
     nameIn.value = ""
     ISBNIn.value = ""
 }
-
-
-
-
-
