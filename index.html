@@ -12,17 +12,29 @@
 <body>
 <div class="container">
     <h1>Add Book</h1>
-    <b>Title</b>
-    <input type="text" id="title">
-    <b>Author</b>
-    <input type="text" id="name">
-    <b>ISBN#</b>
-    <input type="text" id="ISBN">
-    <input type="submit" class="btn">
-    <ul id="ul" class="collection">
-
-
-    </ul>
+    <form>
+        <b>Title</b>
+            <input type="text" id="title">
+            <b>Author</b>
+            <input type="text" id="name">
+            <b>ISBN#</b>
+            <input type="text" id="ISBN">
+            <input type="submit" class="btn">
+    </form>
+    <table id="bookData">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN#</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>62343</td>
+            <td><a href="#">X</a></td>
+        </tr>
+    </table>
 </div>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
