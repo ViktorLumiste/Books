@@ -26,7 +26,6 @@ function addBook(e) {
     nameIn.value = ""
     ISBNIn.value = ""
 }
-// console.log(form)
 
 
 
