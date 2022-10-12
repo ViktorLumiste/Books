@@ -8,7 +8,7 @@ data.addEventListener('click', deleteBook)
 form.addEventListener('submit', addBook)
 
 function addBook(e) {
-    const row = data.insertRow(1)
+    const row = data.insertRow(-1)
     const cell1 = row.insertCell(0)
     const cell2 = row.insertCell(1)
     const cell3 = row.insertCell(2)
@@ -29,13 +29,19 @@ function addBook(e) {
     e.preventDefault()
 }
 function deleteBook(e){
-    let curBook
+    let curBooki
+    let name = e.target.parentElement.parentElement.children[0].innerText
+    let author = e.target.parentElement.parentElement.children[1].innerText
+    let ISBN = e.target.parentElement.parentElement.children[2].innerText
+    let curBook = [name,author,ISBN]
     if (e.target.textContent === "X") {
         if (confirm("are you sure you want to remove this book?")) {
-            curBook = e.target.parentElement.parentElement.rowIndex
-            data.deleteRow(curBook)
+            curBooki = e.target.parentElement.parentElement.rowIndex
+            data.deleteRow(curBooki)
+            deleteBookLS(curBook)
         }
     }
+
 }
 function addBookLS(book){
     let books
@@ -46,4 +52,22 @@ function addBookLS(book){
     }
     books.push(book)
     localStorage.setItem("books", JSON.stringify(books))
+}
+function deleteBookLS(book){
+    let books
+    if (localStorage.getItem("books") === null){
+        books = []
+    } else {
+        books = JSON.parse(localStorage.getItem("books"))
+    }
+    books.forEach((bookLS, bookIndex) => {
+        console.log(bookLS)
+        console.log(book)
+        const sbookLS = JSON.stringify(bookLS)
+        const sbook = JSON.stringify(book)
+        if(sbookLS === sbook){
+            books.splice(bookIndex, 1)
+        }
+    })
+    localStorage.setItem('books', JSON.stringify(books))
 }
