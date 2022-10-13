@@ -62,8 +62,6 @@ function deleteBookLS(book){
         books = JSON.parse(localStorage.getItem("books"))
     }
     books.forEach((bookLS, bookIndex) => {
-        console.log(bookLS)
-        console.log(book)
         const sbookLS = JSON.stringify(bookLS)
         const sbook = JSON.stringify(book)
         if(sbookLS === sbook){
@@ -79,7 +77,6 @@ function getBooksFromLS(){
     } else {
         books = JSON.parse(localStorage.getItem("books"))
     }
-    console.log(books)
     books.forEach((book, bookIndex) => {
         let title = book[0]
         let author = book[1]
